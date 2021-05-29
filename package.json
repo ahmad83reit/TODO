@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/proits-uae/todoproject.git"
+    "url": "git+ssh://git@github.com:ahmad83reit/TODO.git"
   },
   "keywords": [
     "API",
