@@ -8,9 +8,9 @@ const BranchSchema=new mongoose.Schema({
 
 
     },
-    compId: {
+    userId: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Company',
+        ref: 'User',
       },
     isMainBranch:{
         type:Boolean,
@@ -18,9 +18,9 @@ const BranchSchema=new mongoose.Schema({
     },
     description:String,
     address:String,
-    headofdep:{
+    headofbranch:{
         type: mongoose.Schema.ObjectId,
-         ref: 'Employee'
+         ref: 'User'
    },
 },
    {
@@ -29,36 +29,10 @@ const BranchSchema=new mongoose.Schema({
   
 });
 
-BranchSchema.virtual('Department', {
-    ref: 'Department',
-    localField: '_id',
-    foreignField: 'branchId',
-    justOne: false
-  });
 
 
 
-  BranchSchema.virtual('Teams', {
-    ref: 'Team',
-    localField: '_id',
-    foreignField: 'BranchId',
-    justOne: false
-  });
 
 
-  BranchSchema.virtual('EMPS', {
-    ref: 'Employee',
-    localField: '_id',
-    foreignField: 'branchId',
-    justOne: false
-  });
-
-
-
-  BranchSchema.pre('find', function (next) {
-    this.populate('headofdep');
-   // this.populate('countryId');
-    next();
-  });
 
 module.exports=mongoose.model('Branch', BranchSchema);

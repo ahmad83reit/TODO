@@ -91,5 +91,20 @@ http://localhost:5000/api/v1/user/60b0a7e2e380483e682bbda0/todo/60b0ed6909c30132
 
 
 
+Branch Route
 
+1-get all Branch
 
+http://localhost:5000/api/v1/branch
+
+2-Post Branch 
+http://localhost:5000/api/v1/branch
+
+body
+{"name":"Branch","description":"it branch"}
+
+3-put & delete Branch
+
+http://localhost:5000/api/v1/branch
+body
+{"name":"Branch1","description":"it branch"}

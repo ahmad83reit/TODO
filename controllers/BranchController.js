@@ -27,25 +27,10 @@ const Branch = require('../models/BranchModel');
 *@return json object 
 */
 exports.getBranchAll =  asyncHandler(async (req, res, next) => {
- // console.log(req);
- let query;
- const compIdvalue= req.headers.comp_id;
-console.log("compis is"+compIdvalue);
- if (compIdvalue) {
-  query = await Branch.find({ compId: compIdvalue }).populate( 'Department').populate('Teams').populate('EMPS');
-  
-} else {
-  query = Branch.find().populate( 'Department').populate('Teams').populate('EMPS');
 
- 
-}
-const branch = await query;
 
-  res.status(200).json({
-    success: true,
-    count: branch.length,
-    data: branch,
-  });
+
+ res.status(200).json(res.responseResults);
 });
 
 
@@ -82,8 +67,8 @@ exports.getBranchById =asyncHandler(async (req, res, next) => {
 exports.createBranch = asyncHandler(async (req, res, next) => {
     
    
-     req.body.compId= req.headers.comp_id;
-     console.log("Branchcontroller now running"+req.body.compId);
+    
+   
     const branch = await Branch.create(req.body);
    
     res.status(201).json({
